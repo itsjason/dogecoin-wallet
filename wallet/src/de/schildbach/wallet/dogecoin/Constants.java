@@ -107,7 +107,7 @@ public class Constants
 	public static final String LICENSE_URL = "http://www.gnu.org/licenses/gpl-3.0.txt";
 	public static final String SOURCE_URL = "https://github.com/suchhappiness/dogecoin-wallet";
 	public static final String BINARY_URL = "https://github.com/suchhappiness/dogecoin-wallet";
-	public static final String CREDITS_LITECOINJ_URL = "http://code.google.com/p/litecoinj/";
+	public static final String CREDITS_LITECOINJ_URL = "http://code.google.com/p/dogecoinj/";
 	public static final String CREDITS_ZXING_URL = "http://code.google.com/p/zxing/";
 	public static final String CREDITS_ICON_URL = "http://forum.litecoin.net/index.php?topic=1134.0";
 	public static final String AUTHOR_TWITTER_URL = "https://twitter.com/#!/bitcoins4life";

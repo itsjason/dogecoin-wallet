@@ -52,7 +52,7 @@
 		<!-- com.google.litecoin.* -->
 		<dependency>
 			<groupId>com.google</groupId>
-			<artifactId>litecoinj</artifactId>
+			<artifactId>dogecoinj</artifactId>
 			<version>0.85-SNAPSHOT</version>
 		</dependency>
 

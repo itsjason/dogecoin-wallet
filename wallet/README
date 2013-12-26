@@ -15,7 +15,7 @@ Your wallet and your private keys are stored in app internal storage:
 	Wallet for testnet
 
 The wallet file format is not compatible to wallet.dat (Satoshi client). Rather, it uses a custom protobuf format
-which should be compatible between clients using litecoinj.
+which should be compatible between clients using dogecoinj.
 
 Certain actions cause rolling backups of your private keys to app internal storage:
 
@@ -68,10 +68,10 @@ and unpack it to your workspace directory. Switch to that Android SDK directory,
 
 to download the necessary API level.
 
-Next, you need to build litecoinj. In your workspace, use
+Next, you need to build dogecoinj. In your workspace, use
 
-	git clone -b release-0.7 https://code.google.com/p/litecoinj/ litecoinj
-	cd litecoinj
+	git clone -b release-0.7 https://github.com/suchhappiness/dogecoinj.git dogecoinj
+	cd dogecoinj
 	mvn clean install
 
 Finally, you can build Dogecoin Wallet and sign it with your development key. Again in your workspace,
@@ -164,6 +164,6 @@ The feed is described here:
 
 LITECOINJ
 
-Dogecoin Wallet uses litecoinj for Dogecoin specific logic:
+Dogecoin Wallet uses dogecoinj for Dogecoin specific logic:
 
-http://code.google.com/p/litecoinj/
+https://github.com/suchhappiness/dogecoinj.git

@@ -40,7 +40,7 @@ public final class AboutActivity extends SherlockPreferenceActivity
 	private static final String KEY_ABOUT_VERSION = "about_version";
 	private static final String KEY_ABOUT_LICENSE = "about_license";
 	private static final String KEY_ABOUT_SOURCE = "about_source";
-	private static final String KEY_ABOUT_CREDITS_LITECOINJ = "about_credits_litecoinj";
+	private static final String KEY_ABOUT_CREDITS_LITECOINJ = "about_credits_dogecoinj";
 	private static final String KEY_ABOUT_CREDITS_ZXING = "about_credits_zxing";
 	private static final String KEY_ABOUT_CREDITS_ICON = "about_credits_icon";
 	private static final String KEY_ABOUT_AUTHOR_TWITTER = "about_author_twitter";
@@ -61,7 +61,7 @@ public final class AboutActivity extends SherlockPreferenceActivity
 		findPreference(KEY_ABOUT_VERSION).setSummary(((WalletApplication) getApplication()).applicationVersionName());
 		findPreference(KEY_ABOUT_LICENSE).setSummary(Constants.LICENSE_URL);
 		findPreference(KEY_ABOUT_SOURCE).setSummary(Constants.SOURCE_URL);
-		findPreference(KEY_ABOUT_CREDITS_LITECOINJ).setTitle(getString(R.string.about_credits_litecoinj_title, VersionMessage.LITECOINJ_VERSION));
+		findPreference(KEY_ABOUT_CREDITS_LITECOINJ).setTitle(getString(R.string.about_credits_dogecoinj_title, VersionMessage.LITECOINJ_VERSION));
 		findPreference(KEY_ABOUT_CREDITS_LITECOINJ).setSummary(Constants.CREDITS_LITECOINJ_URL);
 		findPreference(KEY_ABOUT_CREDITS_ZXING).setSummary(Constants.CREDITS_ZXING_URL);
 		findPreference(KEY_ABOUT_CREDITS_ICON).setSummary(Constants.CREDITS_ICON_URL);

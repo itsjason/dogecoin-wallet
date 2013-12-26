@@ -24,9 +24,10 @@ This app is based upon the excellent work done by the Bitcoin and Litecoin Walle
 https://code.google.com/p/bitcoin-wallet/
 https://code.google.com/p/litecoin-wallet/
 
-It used a masterfully converted library called litecoinj, which was converted
-from bitcoinj:
+It used a masterfully converted library called dogecoinj, which was converted
+from litecoinj:
 https://code.google.com/p/litecoinj/
+https://github.com/suchhappiness/dogecoinj.git
 
 You can find more about Litecoin at
 http://litecoin.org
