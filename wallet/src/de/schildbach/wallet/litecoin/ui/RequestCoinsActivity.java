@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -26,7 +26,7 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach

@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.util;
+package de.schildbach.wallet.dogecoin.util;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -46,16 +46,16 @@ import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 
-import com.google.litecoin.core.Address;
-import com.google.litecoin.core.AddressFormatException;
-import com.google.litecoin.core.DumpedPrivateKey;
-import com.google.litecoin.core.ECKey;
-import com.google.litecoin.core.ScriptException;
-import com.google.litecoin.core.Sha256Hash;
-import com.google.litecoin.core.Transaction;
-import com.google.litecoin.core.TransactionInput;
-import com.google.litecoin.core.TransactionOutput;
-import com.google.litecoin.core.Utils;
+import com.google.dogecoin.core.Address;
+import com.google.dogecoin.core.AddressFormatException;
+import com.google.dogecoin.core.DumpedPrivateKey;
+import com.google.dogecoin.core.ECKey;
+import com.google.dogecoin.core.ScriptException;
+import com.google.dogecoin.core.Sha256Hash;
+import com.google.dogecoin.core.Transaction;
+import com.google.dogecoin.core.TransactionInput;
+import com.google.dogecoin.core.TransactionOutput;
+import com.google.dogecoin.core.Utils;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
@@ -63,7 +63,7 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
-import de.schildbach.wallet.litecoin.Constants;
+import de.schildbach.wallet.dogecoin.Constants;
 
 /**
  * @author Andreas Schildbach
@@ -195,12 +195,12 @@ public class WalletUtils
 		}
 	}
 
-	public static BigInteger localValue(final BigInteger ltcValue, final BigInteger rate)
+	public static BigInteger localValue(final BigInteger dogeValue, final BigInteger rate)
 	{
-		return ltcValue.multiply(rate).divide(Utils.COIN);
+		return dogeValue.multiply(rate).divide(Utils.COIN);
 	}
 
-	public static BigInteger ltcValue(final BigInteger localValue, final BigInteger rate)
+	public static BigInteger dogeValue(final BigInteger localValue, final BigInteger rate)
 	{
 		return localValue.multiply(Utils.COIN).divide(rate);
 	}
@@ -244,7 +244,7 @@ public class WalletUtils
 	{
 		final DateFormat format = Iso8601Format.newDateTimeFormatT();
 
-		out.write("# KEEP YOUR PRIVATE KEYS SAFE! Anyone who can read this can spend your Litecoins.\n");
+		out.write("# KEEP YOUR PRIVATE KEYS SAFE! Anyone who can read this can spend your Dogecoins.\n");
 
 		for (final ECKey key : keys)
 		{

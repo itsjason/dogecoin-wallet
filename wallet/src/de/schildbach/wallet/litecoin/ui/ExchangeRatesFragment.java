@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import java.math.BigInteger;
 
@@ -43,17 +43,17 @@ import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.google.litecoin.core.Utils;
-import com.google.litecoin.core.Wallet;
-import com.google.litecoin.core.Wallet.BalanceType;
+import com.google.dogecoin.core.Utils;
+import com.google.dogecoin.core.Wallet;
+import com.google.dogecoin.core.Wallet.BalanceType;
 
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.ExchangeRatesProvider;
-import de.schildbach.wallet.litecoin.ExchangeRatesProvider.ExchangeRate;
-import de.schildbach.wallet.litecoin.WalletApplication;
-import de.schildbach.wallet.litecoin.util.ThrottelingWalletChangeListener;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.ExchangeRatesProvider;
+import de.schildbach.wallet.dogecoin.ExchangeRatesProvider.ExchangeRate;
+import de.schildbach.wallet.dogecoin.WalletApplication;
+import de.schildbach.wallet.dogecoin.util.ThrottelingWalletChangeListener;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -235,7 +235,7 @@ public final class ExchangeRatesFragment extends SherlockListFragment implements
 
 	public Loader<Cursor> onCreateLoader(final int id, final Bundle args)
 	{
-        Log.d("Litecoin", "ExchangeRateProvider Key: " + activity.getPackageName());
+        Log.d("Dogecoin", "ExchangeRateProvider Key: " + activity.getPackageName());
         return new CursorLoader(activity, ExchangeRatesProvider.contentUri(activity.getPackageName()), null, null, null, null);
 	}
 

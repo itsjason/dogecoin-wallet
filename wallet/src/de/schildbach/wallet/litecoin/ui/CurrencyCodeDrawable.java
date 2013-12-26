@@ -15,13 +15,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import de.schildbach.wallet.litecoin.Constants;
+import de.schildbach.wallet.dogecoin.Constants;
 
 /**
  * @author Andreas Schildbach

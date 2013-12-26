@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package de.schildbach.wallet.litecoin.util;
+package de.schildbach.wallet.dogecoin.util;
 
 import java.math.BigInteger;
 import java.util.Arrays;
 
-import com.google.litecoin.core.Utils;
+import com.google.dogecoin.core.Utils;
 
 /**
  * Base43, derived from Base58

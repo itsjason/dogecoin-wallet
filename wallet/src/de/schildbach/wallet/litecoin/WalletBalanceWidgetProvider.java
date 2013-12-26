@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin;
+package de.schildbach.wallet.dogecoin;
 
 import java.math.BigInteger;
 
@@ -30,14 +30,14 @@ import android.text.Editable;
 import android.text.SpannableStringBuilder;
 import android.widget.RemoteViews;
 
-import com.google.litecoin.core.Wallet;
-import com.google.litecoin.core.Wallet.BalanceType;
+import com.google.dogecoin.core.Wallet;
+import com.google.dogecoin.core.Wallet.BalanceType;
 
-import de.schildbach.wallet.litecoin.ui.RequestCoinsActivity;
-import de.schildbach.wallet.litecoin.ui.SendCoinsActivity;
-import de.schildbach.wallet.litecoin.ui.WalletActivity;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.ui.RequestCoinsActivity;
+import de.schildbach.wallet.dogecoin.ui.SendCoinsActivity;
+import de.schildbach.wallet.dogecoin.ui.WalletActivity;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -58,7 +58,7 @@ public class WalletBalanceWidgetProvider extends AppWidgetProvider
 			final BigInteger balance)
 	{
 		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-		final int precision = Integer.parseInt(prefs.getString(Constants.PREFS_KEY_LTC_PRECISION, Integer.toString(Constants.LTC_PRECISION)));
+		final int precision = Integer.parseInt(prefs.getString(Constants.PREFS_KEY_DOGE_PRECISION, Integer.toString(Constants.DOGE_PRECISION)));
 		final Editable balanceStr = new SpannableStringBuilder(WalletUtils.formatValue(balance, precision));
 		WalletUtils.formatSignificant(balanceStr, WalletUtils.SMALLER_SPAN);
 

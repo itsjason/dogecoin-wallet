@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.service;
+package de.schildbach.wallet.dogecoin.service;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -27,7 +27,7 @@ import android.content.SharedPreferences;
 import android.os.BatteryManager;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import de.schildbach.wallet.litecoin.Constants;
+import de.schildbach.wallet.dogecoin.Constants;
 
 /**
  * @author Andreas Schildbach

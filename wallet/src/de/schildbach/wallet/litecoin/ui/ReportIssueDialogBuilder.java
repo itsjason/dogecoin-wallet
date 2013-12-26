@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -35,10 +35,10 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.util.CrashReporter;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.util.CrashReporter;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach

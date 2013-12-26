@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import java.math.BigInteger;
 
@@ -40,11 +40,11 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-import com.google.litecoin.core.Utils;
+import com.google.dogecoin.core.Utils;
 
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -63,7 +63,7 @@ public final class CurrencyAmountView extends FrameLayout
 	private int significantColor, lessSignificantColor, errorColor;
 	private Drawable deleteButtonDrawable, contextButtonDrawable;
 	private CurrencyCodeDrawable currencyCodeDrawable;
-	private int precision = Constants.LTC_PRECISION;
+	private int precision = Constants.DOGE_PRECISION;
 	private boolean amountSigned = false;
 	private boolean smallerInsignificant = true;
 	private boolean validateAmount = true;

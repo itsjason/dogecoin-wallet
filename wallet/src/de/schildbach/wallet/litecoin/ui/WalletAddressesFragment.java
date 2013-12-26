@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,17 +41,17 @@ import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.google.litecoin.core.Address;
-import com.google.litecoin.core.ECKey;
-import com.google.litecoin.uri.LitecoinURI;
+import com.google.dogecoin.core.Address;
+import com.google.dogecoin.core.ECKey;
+import com.google.dogecoin.uri.DogecoinURI;
 
-import de.schildbach.wallet.litecoin.AddressBookProvider;
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.DetermineFirstSeenThread;
-import de.schildbach.wallet.litecoin.WalletApplication;
-import de.schildbach.wallet.litecoin.util.BitmapFragment;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.AddressBookProvider;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.DetermineFirstSeenThread;
+import de.schildbach.wallet.dogecoin.WalletApplication;
+import de.schildbach.wallet.dogecoin.util.BitmapFragment;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -236,7 +236,7 @@ public final class WalletAddressesFragment extends SherlockListFragment
 
 			private void handleShowQr(final Address address)
 			{
-				final String uri = LitecoinURI.convertToLitecoinURI(address, null, null, null);
+				final String uri = DogecoinURI.convertToDogecoinURI(address, null, null, null);
 				final int size = (int) (256 * getResources().getDisplayMetrics().density);
 				BitmapFragment.show(getFragmentManager(), WalletUtils.getQRCodeBitmap(uri, size));
 			}
@@ -250,7 +250,7 @@ public final class WalletAddressesFragment extends SherlockListFragment
                     clipboard.setText(address.toString());
                 } else {
                     android.content.ClipboardManager clipboard = (android.content.ClipboardManager) activity.getSystemService(Context.CLIPBOARD_SERVICE);
-                    android.content.ClipData clip = android.content.ClipData.newPlainText("LTC Address", address.toString());
+                    android.content.ClipData clip = android.content.ClipData.newPlainText("DOGE Address", address.toString());
                     clipboard.setPrimaryClip(clip);
                 }
 				activity.toast(R.string.wallet_address_fragment_clipboard_msg);

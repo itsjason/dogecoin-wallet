@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package de.schildbach.wallet.litecoin.util;
+package de.schildbach.wallet.dogecoin.util;
 
 import android.content.Context;
 import android.graphics.Canvas;

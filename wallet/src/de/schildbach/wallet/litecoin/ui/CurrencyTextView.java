@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import java.math.BigInteger;
 
@@ -28,9 +28,9 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -40,7 +40,7 @@ public final class CurrencyTextView extends TextView
 	private String prefix = null;
 	private ForegroundColorSpan prefixColorSpan = null;
 	private BigInteger amount = null;
-	private int precision = Constants.LTC_PRECISION;
+	private int precision = Constants.DOGE_PRECISION;
 	private boolean alwaysSigned = false;
 	private RelativeSizeSpan prefixRelativeSizeSpan = null;
 	private RelativeSizeSpan insignificantRelativeSizeSpan = null;

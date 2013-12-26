@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -36,15 +36,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.litecoin.core.Address;
-import com.google.litecoin.uri.LitecoinURI;
+import com.google.dogecoin.core.Address;
+import com.google.dogecoin.uri.DogecoinURI;
 
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.WalletApplication;
-import de.schildbach.wallet.litecoin.util.BitmapFragment;
-import de.schildbach.wallet.litecoin.util.NfcTools;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.WalletApplication;
+import de.schildbach.wallet.dogecoin.util.BitmapFragment;
+import de.schildbach.wallet.dogecoin.util.NfcTools;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -56,9 +56,9 @@ public final class WalletAddressFragment extends Fragment
 	private SharedPreferences prefs;
 	private Object nfcManager;
 
-	private View litecoinAddressButton;
-	private TextView litecoinAddressLabel;
-	private ImageView litecoinAddressQrView;
+	private View dogecoinAddressButton;
+	private TextView dogecoinAddressLabel;
+	private ImageView dogecoinAddressQrView;
 
 	private Address lastSelectedAddress;
 
@@ -81,11 +81,11 @@ public final class WalletAddressFragment extends Fragment
 		nfcManager = activity.getSystemService(Context.NFC_SERVICE);
 
 		final View view = inflater.inflate(R.layout.wallet_address_fragment, container, false);
-		litecoinAddressButton = view.findViewById(R.id.litecoin_address_button);
-		litecoinAddressLabel = (TextView) view.findViewById(R.id.litecoin_address_label);
-		litecoinAddressQrView = (ImageView) view.findViewById(R.id.litecoin_address_qr);
+		dogecoinAddressButton = view.findViewById(R.id.dogecoin_address_button);
+		dogecoinAddressLabel = (TextView) view.findViewById(R.id.dogecoin_address_label);
+		dogecoinAddressQrView = (ImageView) view.findViewById(R.id.dogecoin_address_qr);
 
-		litecoinAddressButton.setOnClickListener(new OnClickListener()
+		dogecoinAddressButton.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(final View v)
 			{
@@ -93,7 +93,7 @@ public final class WalletAddressFragment extends Fragment
 			}
 		});
 
-		litecoinAddressQrView.setOnClickListener(new OnClickListener()
+		dogecoinAddressQrView.setOnClickListener(new OnClickListener()
 		{
 			public void onClick(final View v)
 			{
@@ -101,7 +101,7 @@ public final class WalletAddressFragment extends Fragment
 			}
 		});
 
-		litecoinAddressQrView.setOnLongClickListener(new OnLongClickListener()
+		dogecoinAddressQrView.setOnLongClickListener(new OnLongClickListener()
 		{
 			public boolean onLongClick(final View v)
 			{
@@ -142,14 +142,14 @@ public final class WalletAddressFragment extends Fragment
 		{
 			lastSelectedAddress = selectedAddress;
 
-			litecoinAddressLabel.setText(WalletUtils.formatAddress(selectedAddress, Constants.ADDRESS_FORMAT_GROUP_SIZE,
+			dogecoinAddressLabel.setText(WalletUtils.formatAddress(selectedAddress, Constants.ADDRESS_FORMAT_GROUP_SIZE,
 					Constants.ADDRESS_FORMAT_LINE_SIZE));
 
-			final String addressStr = LitecoinURI.convertToLitecoinURI(selectedAddress, null, null, null);
+			final String addressStr = DogecoinURI.convertToDogecoinURI(selectedAddress, null, null, null);
 
 			final int size = (int) (256 * getResources().getDisplayMetrics().density);
 			qrCodeBitmap = WalletUtils.getQRCodeBitmap(addressStr, size);
-			litecoinAddressQrView.setImageBitmap(qrCodeBitmap);
+			dogecoinAddressQrView.setImageBitmap(qrCodeBitmap);
 
 			if (nfcManager != null)
 				NfcTools.publishUri(nfcManager, getActivity(), addressStr);

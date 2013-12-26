@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin;
+package de.schildbach.wallet.dogecoin;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -30,8 +30,8 @@ import java.util.regex.Pattern;
 
 import android.os.Handler;
 import android.os.Looper;
-import de.schildbach.wallet.litecoin.util.IOUtils;
-import de.schildbach.wallet.litecoin.util.Iso8601Format;
+import de.schildbach.wallet.dogecoin.util.IOUtils;
+import de.schildbach.wallet.dogecoin.util.Iso8601Format;
 
 /**
  * @author Andreas Schildbach

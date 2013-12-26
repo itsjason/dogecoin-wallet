@@ -27,10 +27,10 @@ Certain actions cause rolling backups of your private keys to app internal stora
 
 Private keys can be exported to and imported from external storage:
 
-/sdcard/Download/litecoin-wallet-keys-<yyyy-MM-dd>
+/sdcard/Download/dogecoin-wallet-keys-<yyyy-MM-dd>
 	Export of private keys for prodnet
 
-/sdcard/Download/litecoin-wallet-keys-testnet-<yyyy-MM-dd>
+/sdcard/Download/dogecoin-wallet-keys-testnet-<yyyy-MM-dd>
 	Export of private keys for testnet
 
 The export file is encrypted using your chosen password. You can OpenSSL to decrypt:
@@ -74,11 +74,11 @@ Next, you need to build litecoinj. In your workspace, use
 	cd litecoinj
 	mvn clean install
 
-Finally, you can build Litecoin Wallet and sign it with your development key. Again in your workspace,
+Finally, you can build Dogecoin Wallet and sign it with your development key. Again in your workspace,
 use
 
-	git clone https://code.google.com/p/litecoin-wallet/ litecoin-wallet
-	cd litecoin-wallet
+	git clone https://code.google.com/p/dogecoin-wallet/ dogecoin-wallet
+	cd dogecoin-wallet
 	mvn clean install -Dandroid.sdk.path=<path to your android sdk>
 
 To upload the app to your Android device, use
@@ -94,7 +94,7 @@ Make sure you've got Eclipse 3.7 (Indigo) with ADT 20 installed.
 
 Use Git to check out the project to your workspace:
 
-  git clone https://code.google.com/p/litecoin-wallet/ litecoin-wallet
+  git clone https://code.google.com/p/dogecoin-wallet/ dogecoin-wallet
 
 Change to that directory.
 
@@ -115,7 +115,7 @@ If you see loads of "should be tagged with @Override" errors, set
 
 NFC (Near field communication)
 
-Litecoin Wallet supports reading Litecoin requests via NFC, either from a passive NFC tag or from
+Dogecoin Wallet supports reading Dogecoin requests via NFC, either from a passive NFC tag or from
 another NFC capable Android device that is requesting coins.
 
 For this to work, just enable NFC in your phone and hold your phone to the tag or device (with
@@ -129,19 +129,19 @@ Instructions for preparing an NFC tag with your address:
 
 - Some tags have less than 50 bytes capacity, those won't work. 1 KB tags recommended.
 
-- The tag needs to contain a Litecoin URI. You can construct one with the "Request coins" dialog,
+- The tag needs to contain a Dogecoin URI. You can construct one with the "Request coins" dialog,
   then share with messaging or email. You can also construct the URI manually. Example for Prodnet:
-  litecoin:1G2Y2jP5YFZ5RGk2PXaeWwbeA5y1ZtFhoL
+  Dogecoin:1G2Y2jP5YFZ5RGk2PXaeWwbeA5y1ZtFhoL
 
 - The type of the message needs to be URI or URL (not Text).
 
 - If you put your tag at a public place, don't forget to enable write protect. Otherwise, someone
-  could overwrite the tag with his own Litecoin address.
+  could overwrite the tag with his own Dogecoin address.
 
 
 EXCHANGE RATES
 
-Litecoin Wallet reads this feed from "litecoin charts" for getting exchange rates:
+Dogecoin Wallet reads this feed from "dogecoin charts" for getting exchange rates:
 
 	http://litecoincharts.com/t/weighted_prices.json
 
@@ -164,6 +164,6 @@ The feed is described here:
 
 LITECOINJ
 
-Litecoin Wallet uses litecoinj for Litecoin specific logic:
+Dogecoin Wallet uses litecoinj for Dogecoin specific logic:
 
 http://code.google.com/p/litecoinj/

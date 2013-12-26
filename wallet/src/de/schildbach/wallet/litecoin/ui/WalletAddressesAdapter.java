@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -30,13 +30,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.google.litecoin.core.Address;
-import com.google.litecoin.core.ECKey;
+import com.google.dogecoin.core.Address;
+import com.google.dogecoin.core.ECKey;
 
-import de.schildbach.wallet.litecoin.AddressBookProvider;
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.AddressBookProvider;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 public class WalletAddressesAdapter extends BaseAdapter
 {

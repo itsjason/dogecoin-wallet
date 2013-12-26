@@ -7,10 +7,10 @@
 	<artifactId>wallet</artifactId>
 	<packaging>apk</packaging>
 	<version>1.11</version>
-	<name>Litecoin Wallet</name>
+	<name>Dogecoin Wallet</name>
 
 	<parent>
-		<groupId>de.schildbach.wallet.litecoin</groupId>
+		<groupId>de.schildbach.wallet.dogecoin</groupId>
 		<artifactId>base</artifactId>
 		<version>1</version>
 	</parent>
@@ -56,9 +56,9 @@
 			<version>0.85-SNAPSHOT</version>
 		</dependency>
 
-		<!-- de.schildbach.wallet.litecoin.integration.android.* -->
+		<!-- de.schildbach.wallet.dogecoin.integration.android.* -->
 		<dependency>
-			<groupId>de.schildbach.wallet.litecoin</groupId>
+			<groupId>de.schildbach.wallet.dogecoin</groupId>
 			<artifactId>integration-android</artifactId>
 			<version>1.0</version>
 		</dependency>

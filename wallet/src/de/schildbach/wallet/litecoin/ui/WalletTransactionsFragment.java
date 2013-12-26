@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -25,9 +25,9 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import de.schildbach.wallet.litecoin.ui.TransactionsListFragment.Direction;
-import de.schildbach.wallet.litecoin.util.ViewPagerTabs;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.ui.TransactionsListFragment.Direction;
+import de.schildbach.wallet.dogecoin.util.ViewPagerTabs;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach

@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.util;
+package de.schildbach.wallet.dogecoin.util;
 
 import java.math.BigInteger;
 import java.util.concurrent.RejectedExecutionException;
@@ -25,10 +25,10 @@ import java.util.concurrent.atomic.AtomicLong;
 import android.os.Handler;
 
 import android.util.Log;
-import com.google.litecoin.core.ECKey;
-import com.google.litecoin.core.Transaction;
-import com.google.litecoin.core.Wallet;
-import com.google.litecoin.core.WalletEventListener;
+import com.google.dogecoin.core.ECKey;
+import com.google.dogecoin.core.Transaction;
+import com.google.dogecoin.core.Wallet;
+import com.google.dogecoin.core.WalletEventListener;
 
 /**
  * @author Andreas Schildbach
@@ -94,7 +94,7 @@ public abstract class ThrottelingWalletChangeListener implements WalletEventList
 			    onThrotteledWalletChanged();
 		    } catch(RejectedExecutionException e)
             {
-                Log.d("Litecoin", "RejectExecutionException calling onThrotteledWalletChanged");
+                Log.d("Dogecoin", "RejectExecutionException calling onThrotteledWalletChanged");
             }
         }
 	};

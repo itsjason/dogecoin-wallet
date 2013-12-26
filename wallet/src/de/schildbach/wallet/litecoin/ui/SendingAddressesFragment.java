@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import java.util.ArrayList;
 
@@ -42,16 +42,16 @@ import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.google.litecoin.core.Address;
-import com.google.litecoin.core.AddressFormatException;
-import com.google.litecoin.uri.LitecoinURI;
-import com.google.litecoin.uri.LitecoinURIParseException;
+import com.google.dogecoin.core.Address;
+import com.google.dogecoin.core.AddressFormatException;
+import com.google.dogecoin.uri.DogecoinURI;
+import com.google.dogecoin.uri.DogecoinURIParseException;
 
-import de.schildbach.wallet.litecoin.AddressBookProvider;
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.util.BitmapFragment;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.AddressBookProvider;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.util.BitmapFragment;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -133,8 +133,8 @@ public final class SendingAddressesFragment extends SherlockListFragment impleme
 				else
 				{
 					// TODO nicer cross-network handling
-					final LitecoinURI litecoinUri = new LitecoinURI(Constants.NETWORK_PARAMETERS, contents);
-					address = litecoinUri.getAddress();
+					final DogecoinURI dogecoinUri = new DogecoinURI(Constants.NETWORK_PARAMETERS, contents);
+					address = dogecoinUri.getAddress();
 				}
 
 				// workaround for "IllegalStateException: Can not perform this action after onSaveInstanceState"
@@ -151,7 +151,7 @@ public final class SendingAddressesFragment extends SherlockListFragment impleme
 			{
 				activity.parseErrorDialog(contents);
 			}
-			catch (final LitecoinURIParseException x)
+			catch (final DogecoinURIParseException x)
 			{
 				activity.parseErrorDialog(contents);
 			}
@@ -307,7 +307,7 @@ public final class SendingAddressesFragment extends SherlockListFragment impleme
 
 	private void handleShowQr(final String address)
 	{
-		final String uri = LitecoinURI.convertToLitecoinURI(address, null, null, null);
+		final String uri = DogecoinURI.convertToDogecoinURI(address, null, null, null);
 		final int size = (int) (256 * getResources().getDisplayMetrics().density);
 		BitmapFragment.show(getFragmentManager(), WalletUtils.getQRCodeBitmap(uri, size));
 	}

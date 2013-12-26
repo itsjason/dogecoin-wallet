@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import java.math.BigInteger;
 
@@ -38,16 +38,16 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
-import com.google.litecoin.core.Wallet;
-import com.google.litecoin.core.Wallet.BalanceType;
+import com.google.dogecoin.core.Wallet;
+import com.google.dogecoin.core.Wallet.BalanceType;
 
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.ExchangeRatesProvider;
-import de.schildbach.wallet.litecoin.ExchangeRatesProvider.ExchangeRate;
-import de.schildbach.wallet.litecoin.WalletApplication;
-import de.schildbach.wallet.litecoin.util.ThrottelingWalletChangeListener;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.ExchangeRatesProvider;
+import de.schildbach.wallet.dogecoin.ExchangeRatesProvider.ExchangeRate;
+import de.schildbach.wallet.dogecoin.WalletApplication;
+import de.schildbach.wallet.dogecoin.util.ThrottelingWalletChangeListener;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -152,7 +152,7 @@ public final class WalletBalanceFragment extends Fragment
 		if (balance != null)
 		{
 			viewBalance.setVisibility(View.VISIBLE);
-			viewBalance.setPrecision(Integer.parseInt(prefs.getString(Constants.PREFS_KEY_LTC_PRECISION, Integer.toString(Constants.LTC_PRECISION))));
+			viewBalance.setPrecision(Integer.parseInt(prefs.getString(Constants.PREFS_KEY_DOGE_PRECISION, Integer.toString(Constants.DOGE_PRECISION))));
 			viewBalance.setAmount(balance);
 
 			if (showLocalBalance)

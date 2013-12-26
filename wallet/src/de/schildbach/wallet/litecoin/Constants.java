@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin;
+package de.schildbach.wallet.dogecoin;
 
 import java.io.File;
 import java.math.BigInteger;
@@ -23,10 +23,10 @@ import java.math.BigInteger;
 import android.os.Environment;
 import android.text.format.DateUtils;
 
-import com.google.litecoin.core.NetworkParameters;
-import com.google.litecoin.core.Utils;
+import com.google.dogecoin.core.NetworkParameters;
+import com.google.dogecoin.core.Utils;
 
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -53,8 +53,8 @@ public class Constants
 	public static final String WALLET_KEY_BACKUP_BASE58 = TEST ? WALLET_KEY_BACKUP_BASE58_TEST : WALLET_KEY_BACKUP_BASE58_PROD;
 
 	public static final File EXTERNAL_WALLET_BACKUP_DIR = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-	private static final String EXTERNAL_WALLET_KEY_BACKUP_PROD = "litecoin-wallet-keys";
-	private static final String EXTERNAL_WALLET_KEY_BACKUP_TEST = "litecoin-wallet-keys-testnet";
+	private static final String EXTERNAL_WALLET_KEY_BACKUP_PROD = "dogecoin-wallet-keys";
+	private static final String EXTERNAL_WALLET_KEY_BACKUP_TEST = "dogecoin-wallet-keys-testnet";
 	public static final String EXTERNAL_WALLET_KEY_BACKUP = TEST ? EXTERNAL_WALLET_KEY_BACKUP_TEST : EXTERNAL_WALLET_KEY_BACKUP_PROD;
 
 	private static final String WALLET_KEY_BACKUP_SNAPSHOT_PROD = "key-backup-snapshot";
@@ -69,24 +69,24 @@ public class Constants
 	private static final String BLOCKCHAIN_FILENAME_TEST = "blockchain-testnet";
 	public static final String BLOCKCHAIN_FILENAME = TEST ? BLOCKCHAIN_FILENAME_TEST : BLOCKCHAIN_FILENAME_PROD;
 
-	public static final String PEER_DISCOVERY_IRC_CHANNEL_PROD = "#litecoin";
-	public static final String PEER_DISCOVERY_IRC_CHANNEL_TEST = "#litecoinTEST3";
+	public static final String PEER_DISCOVERY_IRC_CHANNEL_PROD = "#dogecoin";
+	public static final String PEER_DISCOVERY_IRC_CHANNEL_TEST = "#dogecoinTEST3";
 
-	private static final String BLOCKEXPLORER_BASE_URL_PROD = "http://explorer.litecoin.net/";
-	private static final String BLOCKEXPLORER_BASE_URL_TEST = "http://explorer.litecoin.net/";
+	private static final String BLOCKEXPLORER_BASE_URL_PROD = "http://dogechain.info/";
+	private static final String BLOCKEXPLORER_BASE_URL_TEST = "http://dogechain.info/";
 	public static final String BLOCKEXPLORER_BASE_URL = TEST ? BLOCKEXPLORER_BASE_URL_TEST : BLOCKEXPLORER_BASE_URL_PROD;
 
-	public static final String MIMETYPE_TRANSACTION = "application/x-ltctx";
+	public static final String MIMETYPE_TRANSACTION = "application/x-dogetx";
 
 	public static final int MAX_NUM_CONFIRMATIONS = 7;
-	public static final String USER_AGENT = "Litecoin Wallet";
+	public static final String USER_AGENT = "Dogecoin Wallet";
 	public static final String DEFAULT_EXCHANGE_CURRENCY = "USD";
 	public static final int WALLET_OPERATION_STACK_SIZE = 256 * 1024;
 	public static final long BLOCKCHAIN_DOWNLOAD_THRESHOLD_MS = 5 * DateUtils.SECOND_IN_MILLIS;
 	public static final long BLOCKCHAIN_STATE_BROADCAST_THROTTLE_MS = DateUtils.SECOND_IN_MILLIS;
 	public static final long BLOCKCHAIN_UPTODATE_THRESHOLD_MS = DateUtils.HOUR_IN_MILLIS;
 
-	public static final String CURRENCY_CODE_LITECOIN = "LTC";
+	public static final String CURRENCY_CODE_LITECOIN = "DOGE";
 	public static final char CHAR_HAIR_SPACE = '\u200a';
 	public static final char CHAR_THIN_SPACE = '\u2009';
 	public static final char CHAR_ALMOST_EQUAL_TO = '\u2248';
@@ -96,7 +96,7 @@ public class Constants
 	public static final int ADDRESS_FORMAT_GROUP_SIZE = 4;
 	public static final int ADDRESS_FORMAT_LINE_SIZE = 12;
 
-	public static final int LTC_PRECISION = 8;
+	public static final int DOGE_PRECISION = 8;
 	public static final int LOCAL_PRECISION = 4;
 
 	public static final String DONATION_ADDRESS = "LerikguvK4nTvhk5XUp8ofg2JgLqAGnBV3";
@@ -105,8 +105,8 @@ public class Constants
 	public static final String REPORT_SUBJECT_CRASH = "Crash report";
 
 	public static final String LICENSE_URL = "http://www.gnu.org/licenses/gpl-3.0.txt";
-	public static final String SOURCE_URL = "https://github.com/hank/litecoin-wallet";
-	public static final String BINARY_URL = "https://github.com/hank/litecoin-wallet";
+	public static final String SOURCE_URL = "https://github.com/suchhappiness/dogecoin-wallet";
+	public static final String BINARY_URL = "https://github.com/suchhappiness/dogecoin-wallet";
 	public static final String CREDITS_LITECOINJ_URL = "http://code.google.com/p/litecoinj/";
 	public static final String CREDITS_ZXING_URL = "http://code.google.com/p/zxing/";
 	public static final String CREDITS_ICON_URL = "http://forum.litecoin.net/index.php?topic=1134.0";
@@ -134,7 +134,7 @@ public class Constants
 	public static final String PREFS_KEY_LABS_SEND_COINS_LOW_FEE = "labs_send_coins_low_fee";
 	public static final String PREFS_KEY_LABS_TRANSACTION_DETAILS = "labs_transactions_details";
 	public static final String PREFS_KEY_LABS_BLOCK_EXPLORER = "labs_block_explorer";
-	public static final String PREFS_KEY_LTC_PRECISION = "ltc_precision";
+	public static final String PREFS_KEY_DOGE_PRECISION = "doge_precision";
 	public static final String PREFS_KEY_DISCLAIMER = "disclaimer";
 
 	public static final BigInteger DEFAULT_TX_FEE = Utils.CENT.multiply(new BigInteger("2")); // 0.02

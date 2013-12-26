@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.service;
+package de.schildbach.wallet.dogecoin.service;
 
 import java.io.*;
 import java.math.BigInteger;
@@ -55,21 +55,21 @@ import android.support.v4.app.NotificationCompat;
 import android.text.format.DateUtils;
 import android.util.Log;
 
-import com.google.litecoin.core.*;
-import com.google.litecoin.core.TransactionConfidence.ConfidenceType;
-import com.google.litecoin.core.Wallet.BalanceType;
-import com.google.litecoin.discovery.*;
-import com.google.litecoin.store.BlockStore;
-import com.google.litecoin.store.BlockStoreException;
+import com.google.dogecoin.core.*;
+import com.google.dogecoin.core.TransactionConfidence.ConfidenceType;
+import com.google.dogecoin.core.Wallet.BalanceType;
+import com.google.dogecoin.discovery.*;
+import com.google.dogecoin.store.BlockStore;
+import com.google.dogecoin.store.BlockStoreException;
 
-import com.google.litecoin.store.SPVBlockStore;
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.WalletApplication;
-import de.schildbach.wallet.litecoin.WalletBalanceWidgetProvider;
-import de.schildbach.wallet.litecoin.ui.WalletActivity;
-import de.schildbach.wallet.litecoin.util.ThrottelingWalletChangeListener;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import com.google.dogecoin.store.SPVBlockStore;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.WalletApplication;
+import de.schildbach.wallet.dogecoin.WalletBalanceWidgetProvider;
+import de.schildbach.wallet.dogecoin.ui.WalletActivity;
+import de.schildbach.wallet.dogecoin.util.ThrottelingWalletChangeListener;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -105,7 +105,7 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 
 	private static final long APPWIDGET_THROTTLE_MS = DateUtils.SECOND_IN_MILLIS;
 
-	private static final String TAG = "Litecoin"+BlockchainServiceImpl.class.getSimpleName();
+	private static final String TAG = "Dogecoin"+BlockchainServiceImpl.class.getSimpleName();
 
 	private final WalletEventListener walletEventListener = new ThrottelingWalletChangeListener(APPWIDGET_THROTTLE_MS)
 	{
@@ -165,7 +165,7 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 		if (from != null && !notificationAddresses.contains(from))
 			notificationAddresses.add(from);
 
-		final int precision = Integer.parseInt(prefs.getString(Constants.PREFS_KEY_LTC_PRECISION, Integer.toString(Constants.LTC_PRECISION)));
+		final int precision = Integer.parseInt(prefs.getString(Constants.PREFS_KEY_DOGE_PRECISION, Integer.toString(Constants.DOGE_PRECISION)));
 
 		final String tickerMsg = getString(R.string.notification_coins_received_msg, WalletUtils.formatValue(amount, precision))
 				+ Constants.NETWORK_SUFFIX;
@@ -368,8 +368,8 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
                 try {
 				    peerGroup.addWallet(wallet);
                 } catch(NoSuchMethodError e) {
-                    Log.e("Litecoin", "There's no method: " + e.getLocalizedMessage());
-                    Log.e("Litecoin", "Litecoinj issue.  We're going to ignore this for now and just try and return nicely.");
+                    Log.e("Dogecoin", "There's no method: " + e.getLocalizedMessage());
+                    Log.e("Dogecoin", "Litecoinj issue.  We're going to ignore this for now and just try and return nicely.");
                     return;
                 }
 				peerGroup.setUserAgent(Constants.USER_AGENT, application.applicationVersionName());
@@ -609,7 +609,7 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
                     final InputStream checkpointsFileIn = getAssets().open("checkpoints");
                     CheckpointManager.checkpoint(Constants.NETWORK_PARAMETERS, checkpointsFileIn, blockStore, earliestKeyCreationTime);
                 } catch (IOException e) {
-                    Log.d("Litecoin", "Couldn't find checkpoints file; starting from genesis");
+                    Log.d("Dogecoin", "Couldn't find checkpoints file; starting from genesis");
                 }
             }
 			blockStore.getChainHead(); // detect corruptions as early as possible
@@ -852,7 +852,7 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
                 appWidgetIds = appWidgetManager.getAppWidgetIds(providerName);
         } catch(RuntimeException e) {
             // Bug #6 - App server dead?
-            Log.e("Litecoin", "App server appears dead - Runtime Exception when running getAppWidgetIds.  Returning..");
+            Log.e("Dogecoin", "App server appears dead - Runtime Exception when running getAppWidgetIds.  Returning..");
             return;
         }
 

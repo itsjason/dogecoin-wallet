@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.util;
+package de.schildbach.wallet.dogecoin.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ import android.os.Parcelable;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
 import android.view.View;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach

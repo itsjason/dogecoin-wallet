@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import java.math.BigInteger;
 import java.text.DateFormat;
@@ -53,18 +53,18 @@ import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.google.litecoin.core.Address;
-import com.google.litecoin.core.ScriptException;
-import com.google.litecoin.core.Transaction;
-import com.google.litecoin.core.TransactionConfidence.ConfidenceType;
-import com.google.litecoin.core.Wallet;
+import com.google.dogecoin.core.Address;
+import com.google.dogecoin.core.ScriptException;
+import com.google.dogecoin.core.Transaction;
+import com.google.dogecoin.core.TransactionConfidence.ConfidenceType;
+import com.google.dogecoin.core.Wallet;
 
-import de.schildbach.wallet.litecoin.AddressBookProvider;
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.WalletApplication;
-import de.schildbach.wallet.litecoin.util.ThrottelingWalletChangeListener;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.AddressBookProvider;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.WalletApplication;
+import de.schildbach.wallet.dogecoin.util.ThrottelingWalletChangeListener;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 import org.spongycastle.crypto.tls.TlsAgreementCredentials;
 
 /**
@@ -369,7 +369,7 @@ public class TransactionsListFragment extends SherlockListFragment implements Lo
                     // I don't know how I can set the policy on this underneath AsyncTaskLoader
                     // Ideally, I'd like to use ThreadPoolExecutor.DiscardOldestPolicy
                     // This would just kill the oldest task and add this one.
-                    Log.d("Litecoin", "RejectedExecutionException on forceLoad()");
+                    Log.d("Dogecoin", "RejectedExecutionException on forceLoad()");
                 }
 			}
 		};
@@ -401,13 +401,13 @@ public class TransactionsListFragment extends SherlockListFragment implements Lo
 
 	public void onSharedPreferenceChanged(final SharedPreferences sharedPreferences, final String key)
 	{
-		if (Constants.PREFS_KEY_LTC_PRECISION.equals(key))
+		if (Constants.PREFS_KEY_DOGE_PRECISION.equals(key))
 			updateView();
 	}
 
 	private void updateView()
 	{
-		adapter.setPrecision(Integer.parseInt(prefs.getString(Constants.PREFS_KEY_LTC_PRECISION, Integer.toString(Constants.LTC_PRECISION))));
+		adapter.setPrecision(Integer.parseInt(prefs.getString(Constants.PREFS_KEY_DOGE_PRECISION, Integer.toString(Constants.DOGE_PRECISION))));
 
 		adapter.clearLabelCache();
 	}

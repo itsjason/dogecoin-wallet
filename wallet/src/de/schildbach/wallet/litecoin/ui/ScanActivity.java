@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import java.io.IOException;
 import java.util.EnumMap;
@@ -54,8 +54,8 @@ import com.google.zxing.ResultPointCallback;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
 
-import de.schildbach.wallet.litecoin.camera.CameraManager;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.camera.CameraManager;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach

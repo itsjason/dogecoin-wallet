@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -36,18 +36,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.google.litecoin.core.Address;
-import com.google.litecoin.core.ScriptException;
-import com.google.litecoin.core.Transaction;
-import com.google.litecoin.core.TransactionConfidence;
-import com.google.litecoin.core.TransactionConfidence.ConfidenceType;
-import com.google.litecoin.core.Wallet;
+import com.google.dogecoin.core.Address;
+import com.google.dogecoin.core.ScriptException;
+import com.google.dogecoin.core.Transaction;
+import com.google.dogecoin.core.TransactionConfidence;
+import com.google.dogecoin.core.TransactionConfidence.ConfidenceType;
+import com.google.dogecoin.core.Wallet;
 
-import de.schildbach.wallet.litecoin.AddressBookProvider;
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.util.CircularProgressView;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.AddressBookProvider;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.util.CircularProgressView;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -60,7 +60,7 @@ public class TransactionsListAdapter extends BaseAdapter
 	private final int maxConnectedPeers;
 
 	private final List<Transaction> transactions = new ArrayList<Transaction>();
-	private int precision = Constants.LTC_PRECISION;
+	private int precision = Constants.DOGE_PRECISION;
 
 	private final int colorSignificant;
 	private final int colorInsignificant;

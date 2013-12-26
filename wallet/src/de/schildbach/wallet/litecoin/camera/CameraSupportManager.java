@@ -15,10 +15,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.camera;
+package de.schildbach.wallet.dogecoin.camera;
 
 import android.os.Build;
-import de.schildbach.wallet.litecoin.util.PlatformSupportManager;
+import de.schildbach.wallet.dogecoin.util.PlatformSupportManager;
 
 /**
  * @author Andreas Schildbach
@@ -29,6 +29,6 @@ public class CameraSupportManager extends PlatformSupportManager<CameraInterface
 	{
 		super(CameraInterface.class, new DefaultCameraInterface());
 
-		//addImplementationClass(Build.VERSION_CODES.GINGERBREAD, "de.schildbach.wallet.litecoin.camera.GingerbreadCameraInterface");
+		//addImplementationClass(Build.VERSION_CODES.GINGERBREAD, "de.schildbach.wallet.dogecoin.camera.GingerbreadCameraInterface");
 	}
 }

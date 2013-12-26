@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import java.math.BigInteger;
 
@@ -37,13 +37,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.litecoin.core.Utils;
+import com.google.dogecoin.core.Utils;
 
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.ExchangeRatesProvider;
-import de.schildbach.wallet.litecoin.ExchangeRatesProvider.ExchangeRate;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.ExchangeRatesProvider;
+import de.schildbach.wallet.dogecoin.ExchangeRatesProvider.ExchangeRate;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -74,7 +74,7 @@ public final class AmountCalculatorFragment extends DialogFragment implements Lo
 
 	private ExchangeRate exchangeRate;
 	private boolean exchangeDirection = true;
-	private CurrencyAmountView ltcAmountView, localAmountView;
+	private CurrencyAmountView dogeAmountView, localAmountView;
 	private TextView exchangeRateView;
 
 	@Override
@@ -92,7 +92,7 @@ public final class AmountCalculatorFragment extends DialogFragment implements Lo
 	public Dialog onCreateDialog(final Bundle savedInstanceState)
 	{
 		exchangeCurrency = prefs.getString(Constants.PREFS_KEY_EXCHANGE_CURRENCY, Constants.DEFAULT_EXCHANGE_CURRENCY);
-		precision = Integer.parseInt(prefs.getString(Constants.PREFS_KEY_LTC_PRECISION, Integer.toString(Constants.LTC_PRECISION)));
+		precision = Integer.parseInt(prefs.getString(Constants.PREFS_KEY_DOGE_PRECISION, Integer.toString(Constants.DOGE_PRECISION)));
 
 		final AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
 		dialog.setInverseBackgroundForced(true);
@@ -100,12 +100,12 @@ public final class AmountCalculatorFragment extends DialogFragment implements Lo
 
 		final View view = inflater.inflate(R.layout.amount_calculator_dialog, null);
 
-		ltcAmountView = (CurrencyAmountView) view.findViewById(R.id.amount_calculator_row_ltc);
-		ltcAmountView.setListener(new CurrencyAmountView.Listener()
+		dogeAmountView = (CurrencyAmountView) view.findViewById(R.id.amount_calculator_row_doge);
+		dogeAmountView.setListener(new CurrencyAmountView.Listener()
 		{
 			public void changed()
 			{
-				if (ltcAmountView.getAmount() != null)
+				if (dogeAmountView.getAmount() != null)
 				{
 					exchangeDirection = true;
 
@@ -142,7 +142,7 @@ public final class AmountCalculatorFragment extends DialogFragment implements Lo
 				}
 				else
 				{
-					ltcAmountView.setHint(null);
+					dogeAmountView.setHint(null);
 				}
 			}
 
@@ -190,12 +190,12 @@ public final class AmountCalculatorFragment extends DialogFragment implements Lo
 
 			if (exchangeDirection)
 			{
-				final BigInteger ltcAmount = ltcAmountView.getAmount();
-				if (ltcAmount != null)
+				final BigInteger dogeAmount = dogeAmountView.getAmount();
+				if (dogeAmount != null)
 				{
 					localAmountView.setAmount(null);
-					localAmountView.setHint(WalletUtils.localValue(ltcAmount, exchangeRate.rate));
-					ltcAmountView.setHint(null);
+					localAmountView.setHint(WalletUtils.localValue(dogeAmount, exchangeRate.rate));
+					dogeAmountView.setHint(null);
 				}
 			}
 			else
@@ -203,8 +203,8 @@ public final class AmountCalculatorFragment extends DialogFragment implements Lo
 				final BigInteger localAmount = localAmountView.getAmount();
 				if (localAmount != null)
 				{
-					ltcAmountView.setAmount(null);
-					ltcAmountView.setHint(WalletUtils.ltcValue(localAmount, exchangeRate.rate));
+					dogeAmountView.setAmount(null);
+					dogeAmountView.setHint(WalletUtils.dogeValue(localAmount, exchangeRate.rate));
 					localAmountView.setHint(null);
 				}
 			}
@@ -222,8 +222,8 @@ public final class AmountCalculatorFragment extends DialogFragment implements Lo
 
 	private void done()
 	{
-		final BigInteger amount = exchangeDirection ? ltcAmountView.getAmount() : WalletUtils
-				.ltcValue(localAmountView.getAmount(), exchangeRate.rate);
+		final BigInteger amount = exchangeDirection ? dogeAmountView.getAmount() : WalletUtils
+				.dogeValue(localAmountView.getAmount(), exchangeRate.rate);
 
 		((Listener) getTargetFragment()).useCalculatedAmount(amount);
 

@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -60,22 +60,22 @@ import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.google.litecoin.core.*;
-import com.google.litecoin.core.TransactionConfidence.ConfidenceType;
-import com.google.litecoin.core.Wallet.BalanceType;
-import com.google.litecoin.core.Wallet.SendRequest;
-import com.google.litecoin.uri.LitecoinURI;
-import com.google.litecoin.uri.LitecoinURIParseException;
+import com.google.dogecoin.core.*;
+import com.google.dogecoin.core.TransactionConfidence.ConfidenceType;
+import com.google.dogecoin.core.Wallet.BalanceType;
+import com.google.dogecoin.core.Wallet.SendRequest;
+import com.google.dogecoin.uri.DogecoinURI;
+import com.google.dogecoin.uri.DogecoinURIParseException;
 
 import com.google.zxing.integration.android.IntentIntegrator;
-import de.schildbach.wallet.litecoin.AddressBookProvider;
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.WalletApplication;
-import de.schildbach.wallet.litecoin.integration.android.LitecoinIntegration;
-import de.schildbach.wallet.litecoin.service.BlockchainService;
-import de.schildbach.wallet.litecoin.service.BlockchainServiceImpl;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.AddressBookProvider;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.WalletApplication;
+import de.schildbach.wallet.dogecoin.integration.android.DogecoinIntegration;
+import de.schildbach.wallet.dogecoin.service.BlockchainService;
+import de.schildbach.wallet.dogecoin.service.BlockchainServiceImpl;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -170,7 +170,7 @@ public final class SendCoinsFragment extends SherlockFragment implements AmountC
 		public void changed()
 		{
 			dismissPopup();
-            Log.d("Litecoin", "Amount: " + amountView.getAmount() + ", Fee: " + feeView.getAmount());
+            Log.d("Dogecoin", "Amount: " + amountView.getAmount() + ", Fee: " + feeView.getAmount());
 			validateAmounts(false);
 		}
 
@@ -402,7 +402,7 @@ public final class SendCoinsFragment extends SherlockFragment implements AmountC
 
 				final AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
 				dialog.setMessage(getString(R.string.send_coins_dialog_fee_message,
-						Constants.CURRENCY_CODE_LITECOIN + " " + WalletUtils.formatValue(Constants.DEFAULT_TX_FEE, Constants.LTC_PRECISION)));
+						Constants.CURRENCY_CODE_LITECOIN + " " + WalletUtils.formatValue(Constants.DEFAULT_TX_FEE, Constants.DOGE_PRECISION)));
 				if (allowLowFee)
 				{
 					dialog.setPositiveButton(R.string.send_coins_dialog_fee_button_send, new DialogInterface.OnClickListener()
@@ -518,12 +518,12 @@ public final class SendCoinsFragment extends SherlockFragment implements AmountC
 			{
 				try
 				{
-					final LitecoinURI litecoinUri = new LitecoinURI(null, contents);
-					final Address address = litecoinUri.getAddress();
-					final String addressLabel = litecoinUri.getLabel();
-					update(address != null ? address.toString() : null, addressLabel, litecoinUri.getAmount());
+					final DogecoinURI dogecoinUri = new DogecoinURI(null, contents);
+					final Address address = dogecoinUri.getAddress();
+					final String addressLabel = dogecoinUri.getLabel();
+					update(address != null ? address.toString() : null, addressLabel, dogecoinUri.getAmount());
 				}
-				catch (final LitecoinURIParseException x)
+				catch (final DogecoinURIParseException x)
 				{
 					activity.parseErrorDialog(contents);
 				}
@@ -687,7 +687,7 @@ public final class SendCoinsFragment extends SherlockFragment implements AmountC
 
 		final TextView viewPending = (TextView) popupAvailableView.findViewById(R.id.send_coins_popup_available_pending);
 		viewPending.setVisibility(pending.signum() > 0 ? View.VISIBLE : View.GONE);
-		viewPending.setText(getString(R.string.send_coins_fragment_pending, WalletUtils.formatValue(pending, Constants.LTC_PRECISION)));
+		viewPending.setText(getString(R.string.send_coins_fragment_pending, WalletUtils.formatValue(pending, Constants.DOGE_PRECISION)));
 
 		popup(anchor, popupAvailableView);
 	}
@@ -730,8 +730,8 @@ public final class SendCoinsFragment extends SherlockFragment implements AmountC
                 final Transaction transaction = wallet.createSend(sendRequest);
                 int txSize = transaction.getOutputs().size();
                 // Get the size of the transaction
-                Log.d("Litecoin", "Transaction size is " + txSize);
-                /* From official Litecoin wallet.cpp
+                Log.d("Dogecoin", "Transaction size is " + txSize);
+                /* From official Dogecoin wallet.cpp
                     // Check that enough fee is included
                     int64_t nPayFee = nTransactionFee * (1 + (int64_t)nBytes / 1000);
                     bool fAllowFree = AllowFree(dPriority);
@@ -750,7 +750,7 @@ public final class SendCoinsFragment extends SherlockFragment implements AmountC
                 BigInteger nPayFee = nTransactionFee.multiply(multiplicand);
                 if(sendRequest.fee.compareTo(nPayFee.max(nMinFee)) < 0)
                 {
-                    Log.i("LitecoinSendCoins", "Recalculated fee: " +
+                    Log.i("DogecoinSendCoins", "Recalculated fee: " +
                             sendRequest.fee.toString() + " < " + nPayFee.max(nMinFee).toString());
                     sendRequest.fee = nPayFee.max(nMinFee);
 
@@ -772,7 +772,7 @@ public final class SendCoinsFragment extends SherlockFragment implements AmountC
                                         try {
                                             wallet.commitTx(sendRequest.tx);
                                         } catch (VerificationException e) {
-                                            Log.i("LitecoinSendCoins", "VerificationException: " + e);
+                                            Log.i("DogecoinSendCoins", "VerificationException: " + e);
                                             return;
                                         }
                                         // Fees are agreeable
@@ -787,7 +787,7 @@ public final class SendCoinsFragment extends SherlockFragment implements AmountC
                     try {
                         wallet.commitTx(sendRequest.tx);
                     } catch (VerificationException e) {
-                        Log.i("LitecoinSendCoins", "VerificationException: " + e);
+                        Log.i("DogecoinSendCoins", "VerificationException: " + e);
                         return;
                     }
                     handler.post(new TransactionRunnable(transaction));
@@ -816,7 +816,7 @@ public final class SendCoinsFragment extends SherlockFragment implements AmountC
             service.broadcastTransaction(sentTransaction);
 
             final Intent result = new Intent();
-            LitecoinIntegration.transactionHashToResult(result, sentTransaction.getHashAsString());
+            DogecoinIntegration.transactionHashToResult(result, sentTransaction.getHashAsString());
             activity.setResult(Activity.RESULT_OK, result);
 
             // final String label = AddressBookProvider.resolveLabel(contentResolver,
@@ -907,8 +907,8 @@ public final class SendCoinsFragment extends SherlockFragment implements AmountC
 		if (sentTransaction != null)
 		{
 			sentTransactionView.setVisibility(View.VISIBLE);
-			sentTransactionListAdapter.setPrecision(Integer.parseInt(prefs.getString(Constants.PREFS_KEY_LTC_PRECISION,
-					Integer.toString(Constants.LTC_PRECISION))));
+			sentTransactionListAdapter.setPrecision(Integer.parseInt(prefs.getString(Constants.PREFS_KEY_DOGE_PRECISION,
+					Integer.toString(Constants.DOGE_PRECISION))));
 			sentTransactionListAdapter.replace(sentTransaction);
 		}
 		else

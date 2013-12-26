@@ -1,18 +1,18 @@
-With this app you always have your Litecoins with you, in your pocket! You can
+With this app you always have your Dogecoins with you, in your pocket! You can
 send payments simply by scanning a QR-code or by touching two phones together
-(NFC). Litecoin Wallet is designed to be easy to use and reliable, while also
+(NFC). Dogecoin Wallet is designed to be easy to use and reliable, while also
 being secure and fast.
 
 FEATURES:
 
 • No cloud server or web service needed! This wallet is truly peer to peer.
-• Display of wallet balance in Litecoin and various other currencies.
-• Sending and receiving of Litecoin via NFC, QR-codes or Litecoin URLs.
-• Address book for regularly used Litecoin addresses.
+• Display of wallet balance in Dogecoin and various other currencies.
+• Sending and receiving of Dogecoin via NFC, QR-codes or Dogecoin URLs.
+• Address book for regularly used Dogecoin addresses.
 • Enter transactions while offline, will be executed when online.
 • Manages blockchain on your device (for enhanced security).
-• System notifications for Litecoin connectivity and received coins.
-• App widget for Litecoin balance (requirement: app moved to phone).
+• System notifications for Dogecoin connectivity and received coins.
+• App widget for Dogecoin balance (requirement: app moved to phone).
 
 KNOWN ISSUES, PLEASE READ:
 
@@ -20,8 +20,9 @@ KNOWN ISSUES, PLEASE READ:
 
 More Information:
 
-This app is based upon the excellent work done by the Bitcoin Wallet developers:
+This app is based upon the excellent work done by the Bitcoin and Litecoin Wallet developers:
 https://code.google.com/p/bitcoin-wallet/
+https://code.google.com/p/litecoin-wallet/
 
 It used a masterfully converted library called litecoinj, which was converted
 from bitcoinj:
@@ -30,11 +31,14 @@ https://code.google.com/p/litecoinj/
 You can find more about Litecoin at
 http://litecoin.org
 
-If you want to contribute to Litecoin Wallet, the project is located at
-http://www.github.com/hank/litecoin-wallet
+You can find more about Dogecoin at
+http://dogecoin.com
+
+If you want to contribute to Dogecoin Wallet, the project is located at
+https://github.com/suchhappiness/dogecoin-wallet
 
 License: GPLv3
 Use at your own risk!
 
 --
-LTC bitcoin wallet blockchain bitcoinandroid androidbitcoin Geldbörse Кошелёк mobile payment
+LTC bitcoin wallet blockchain bitcoinandroid androidbitcoin Geldbörse Кошелёк mobile payment dogecoin dogecoinandroid doge shibe shibecoin DOGE DOG dog shiba shibecoin shibacoin

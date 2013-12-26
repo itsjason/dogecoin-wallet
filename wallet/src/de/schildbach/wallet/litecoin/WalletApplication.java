@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin;
+package de.schildbach.wallet.dogecoin;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -44,17 +44,17 @@ import android.text.format.DateUtils;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.google.litecoin.core.Address;
-import com.google.litecoin.core.ECKey;
-import com.google.litecoin.core.Wallet;
-import com.google.litecoin.store.WalletProtobufSerializer;
+import com.google.dogecoin.core.Address;
+import com.google.dogecoin.core.ECKey;
+import com.google.dogecoin.core.Wallet;
+import com.google.dogecoin.store.WalletProtobufSerializer;
 
-import de.schildbach.wallet.litecoin.service.BlockchainService;
-import de.schildbach.wallet.litecoin.service.BlockchainServiceImpl;
-import de.schildbach.wallet.litecoin.util.CrashReporter;
-import de.schildbach.wallet.litecoin.util.StrictModeWrapper;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.service.BlockchainService;
+import de.schildbach.wallet.dogecoin.service.BlockchainServiceImpl;
+import de.schildbach.wallet.dogecoin.util.CrashReporter;
+import de.schildbach.wallet.dogecoin.util.StrictModeWrapper;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -69,7 +69,7 @@ public class WalletApplication extends Application
 	private ActivityManager activityManager;
 
 	private static final Charset UTF_8 = Charset.forName("UTF-8");
-	private static final String TAG = "Litecoin"+WalletApplication.class.getSimpleName();
+	private static final String TAG = "Dogecoin"+WalletApplication.class.getSimpleName();
 
 	@Override
 	public void onCreate()
@@ -397,7 +397,7 @@ public class WalletApplication extends Application
 	public void resetBlockchain()
 	{
 		// actually stops the service
-        Log.d("Litecoin", "Sending blockchain service reset intent");
+        Log.d("Dogecoin", "Sending blockchain service reset intent");
 		startService(blockchainServiceResetBlockchainIntent);
         android.os.Process.killProcess(android.os.Process.myPid());
 	}

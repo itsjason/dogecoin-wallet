@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -28,11 +28,11 @@ import android.webkit.WebView;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-import com.google.litecoin.uri.LitecoinURI;
-import com.google.litecoin.uri.LitecoinURIParseException;
+import com.google.dogecoin.uri.DogecoinURI;
+import com.google.dogecoin.uri.DogecoinURIParseException;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.R;
 
 import java.math.BigInteger;
 
@@ -116,16 +116,16 @@ public final class SendCoinsActivity extends AbstractWalletActivity
 		final String addressLabel;
 		final BigInteger amount;
 
-		if ((Intent.ACTION_VIEW.equals(action) || NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)) && intentUri != null && "litecoin".equals(scheme))
+		if ((Intent.ACTION_VIEW.equals(action) || NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)) && intentUri != null && "dogecoin".equals(scheme))
 		{
 			try
 			{
-				final LitecoinURI litecoinUri = new LitecoinURI(null, intentUri.toString());
-				address = litecoinUri.getAddress().toString();
-				addressLabel = litecoinUri.getLabel();
-				amount = litecoinUri.getAmount();
+				final DogecoinURI dogecoinUri = new DogecoinURI(null, intentUri.toString());
+				address = dogecoinUri.getAddress().toString();
+				addressLabel = dogecoinUri.getLabel();
+				amount = dogecoinUri.getAmount();
 			}
-			catch (final LitecoinURIParseException x)
+			catch (final DogecoinURIParseException x)
 			{
 				parseErrorDialog(intentUri.toString());
 				return;
@@ -160,21 +160,21 @@ public final class SendCoinsActivity extends AbstractWalletActivity
         if (scanResult != null) {
             String contents = scanResult.getContents();
             if(contents == null) return;
-            Log.d("Litecoin", "SCAN RESULT:" + contents);
+            Log.d("Dogecoin", "SCAN RESULT:" + contents);
             try {
-                final LitecoinURI uri = new LitecoinURI(null, contents);
-                Log.d("Litecoin", "URI: " + uri.getAddress().toString() + " " + uri.getLabel() + " " + uri.getAmount());
+                final DogecoinURI uri = new DogecoinURI(null, contents);
+                Log.d("Dogecoin", "URI: " + uri.getAddress().toString() + " " + uri.getLabel() + " " + uri.getAmount());
                 updateSendCoinsFragment(uri.getAddress().toString(), uri.getLabel(), uri.getAmount());
             }
-            catch (final LitecoinURIParseException x)
+            catch (final DogecoinURIParseException x)
             {
-                // Try prepending litecoin:
+                // Try prepending dogecoin:
                 try {
-                    final LitecoinURI uri = new LitecoinURI(null, "litecoin:" + contents);
-                    Log.d("Litecoin", "URI: " + uri.getAddress().toString() + " " + uri.getLabel() + " " + uri.getAmount());
+                    final DogecoinURI uri = new DogecoinURI(null, "dogecoin:" + contents);
+                    Log.d("Dogecoin", "URI: " + uri.getAddress().toString() + " " + uri.getLabel() + " " + uri.getAmount());
                     updateSendCoinsFragment(uri.getAddress().toString(), uri.getLabel(), uri.getAmount());
                 }
-                catch (final LitecoinURIParseException y)
+                catch (final DogecoinURIParseException y)
                 {
                     parseErrorDialog(scanResult.getContents());
                 }

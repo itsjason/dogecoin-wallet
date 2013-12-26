@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package de.schildbach.wallet.litecoin.util;
+package de.schildbach.wallet.dogecoin.util;
 
 import java.util.Collections;
 import java.util.SortedMap;

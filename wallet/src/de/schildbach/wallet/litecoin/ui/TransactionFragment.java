@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -39,19 +39,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockFragment;
-import com.google.litecoin.core.Address;
-import com.google.litecoin.core.ScriptException;
-import com.google.litecoin.core.Transaction;
-import com.google.litecoin.core.TransactionConfidence.ConfidenceType;
-import com.google.litecoin.core.Wallet;
+import com.google.dogecoin.core.Address;
+import com.google.dogecoin.core.ScriptException;
+import com.google.dogecoin.core.Transaction;
+import com.google.dogecoin.core.TransactionConfidence.ConfidenceType;
+import com.google.dogecoin.core.Wallet;
 
-import de.schildbach.wallet.litecoin.AddressBookProvider;
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.WalletApplication;
-import de.schildbach.wallet.litecoin.util.Base43;
-import de.schildbach.wallet.litecoin.util.BitmapFragment;
-import de.schildbach.wallet.litecoin.util.WalletUtils;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.AddressBookProvider;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.WalletApplication;
+import de.schildbach.wallet.dogecoin.util.Base43;
+import de.schildbach.wallet.dogecoin.util.BitmapFragment;
+import de.schildbach.wallet.dogecoin.util.WalletUtils;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -94,7 +94,7 @@ public final class TransactionFragment extends SherlockFragment
 	{
 		final Wallet wallet = ((WalletApplication) activity.getApplication()).getWallet();
 
-		final byte[] serializedTx = tx.unsafeLitecoinSerialize();
+		final byte[] serializedTx = tx.unsafeDogecoinSerialize();
 
 		Address from = null;
 		boolean fromMine = false;
@@ -138,7 +138,7 @@ public final class TransactionFragment extends SherlockFragment
 			if (amountSent.signum() != 0)
 			{
 				final TextView viewAmountSent = (TextView) view.findViewById(R.id.transaction_fragment_amount_sent);
-				viewAmountSent.setText(Constants.CURRENCY_MINUS_SIGN + WalletUtils.formatValue(amountSent, Constants.LTC_PRECISION));
+				viewAmountSent.setText(Constants.CURRENCY_MINUS_SIGN + WalletUtils.formatValue(amountSent, Constants.DOGE_PRECISION));
 			}
 		}
 		catch (final ScriptException x)
@@ -151,7 +151,7 @@ public final class TransactionFragment extends SherlockFragment
 		if (amountReceived.signum() != 0)
 		{
 			final TextView viewAmountReceived = (TextView) view.findViewById(R.id.transaction_fragment_amount_received);
-			viewAmountReceived.setText(Constants.CURRENCY_PLUS_SIGN + WalletUtils.formatValue(amountReceived, Constants.LTC_PRECISION));
+			viewAmountReceived.setText(Constants.CURRENCY_PLUS_SIGN + WalletUtils.formatValue(amountReceived, Constants.DOGE_PRECISION));
 		}
 
 		final View viewFromButton = view.findViewById(R.id.transaction_fragment_from_button);
@@ -269,7 +269,7 @@ public final class TransactionFragment extends SherlockFragment
 				final byte[] gzippedSerializedTx = bos.toByteArray();
 				final boolean useCompressioon = gzippedSerializedTx.length < serializedTx.length;
 
-				final StringBuilder txStr = new StringBuilder("ltctx:");
+				final StringBuilder txStr = new StringBuilder("dogetx:");
 				txStr.append(useCompressioon ? 'Z' : '-');
 				txStr.append(Base43.encode(useCompressioon ? gzippedSerializedTx : serializedTx));
 

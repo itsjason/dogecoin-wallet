@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.ui;
+package de.schildbach.wallet.dogecoin.ui;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -32,17 +32,17 @@ import android.os.Bundle;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.MenuItem;
-import com.google.litecoin.core.ProtocolException;
-import com.google.litecoin.core.Sha256Hash;
-import com.google.litecoin.core.Transaction;
-import com.google.litecoin.core.VerificationException;
-import com.google.litecoin.core.Wallet;
+import com.google.dogecoin.core.ProtocolException;
+import com.google.dogecoin.core.Sha256Hash;
+import com.google.dogecoin.core.Transaction;
+import com.google.dogecoin.core.VerificationException;
+import com.google.dogecoin.core.Wallet;
 
-import de.schildbach.wallet.litecoin.Constants;
-import de.schildbach.wallet.litecoin.WalletApplication;
-import de.schildbach.wallet.litecoin.util.Base43;
-import de.schildbach.wallet.litecoin.util.NfcTools;
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.Constants;
+import de.schildbach.wallet.dogecoin.WalletApplication;
+import de.schildbach.wallet.dogecoin.util.Base43;
+import de.schildbach.wallet.dogecoin.util.NfcTools;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
@@ -106,7 +106,7 @@ public final class TransactionActivity extends AbstractWalletActivity
 			final Wallet wallet = ((WalletApplication) getApplication()).getWallet();
 			tx = wallet.getTransaction((Sha256Hash) intent.getSerializableExtra(INTENT_EXTRA_TRANSACTION_HASH));
 		}
-		else if (intentUri != null && "ltctx".equals(scheme))
+		else if (intentUri != null && "dogetx".equals(scheme))
 		{
 			try
 			{
@@ -181,7 +181,7 @@ public final class TransactionActivity extends AbstractWalletActivity
 		transactionFragment.update(tx);
 
 		if (nfcManager != null)
-			NfcTools.publishMimeObject(nfcManager, this, Constants.MIMETYPE_TRANSACTION, tx.unsafeLitecoinSerialize(), false);
+			NfcTools.publishMimeObject(nfcManager, this, Constants.MIMETYPE_TRANSACTION, tx.unsafeDogecoinSerialize(), false);
 	}
 
 	private void processPendingTransaction(final Transaction tx)

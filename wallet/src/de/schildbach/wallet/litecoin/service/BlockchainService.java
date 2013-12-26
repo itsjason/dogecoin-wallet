@@ -15,15 +15,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.litecoin.service;
+package de.schildbach.wallet.dogecoin.service;
 
 import java.util.List;
 
-import com.google.litecoin.core.Peer;
-import com.google.litecoin.core.StoredBlock;
-import com.google.litecoin.core.Transaction;
+import com.google.dogecoin.core.Peer;
+import com.google.dogecoin.core.StoredBlock;
+import com.google.dogecoin.core.Transaction;
 
-import de.schildbach.wallet.litecoin.R;
+import de.schildbach.wallet.dogecoin.R;
 
 /**
  * @author Andreas Schildbach
